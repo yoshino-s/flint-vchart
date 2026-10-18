@@ -4,6 +4,13 @@ All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-18
+### Changed
+- Replaced the initial minimal mapper with a `flint-chart@0.5.1` contract-backed compiler.
+- Added the complete 44-template public Flint registry union, strict per-template validation,
+  static-series normalization, aggregation, semantic/temporal resolution, themes and interactions.
+- Added conformance tests for every official Flint gallery fixture.
+
 ## [0.1.0] - 2026-10-18
 ### Added
 - Typed Flint-to-VChart compiler, validator, semantic inference and diagnostics.

@@ -1,21 +1,46 @@
 {
   "name": "flint-vchart",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Compile Microsoft Flint chart specifications to VisActor VChart specifications",
-  "keywords": ["flint", "vchart", "visactor", "visualization", "chart", "compiler"],
+  "keywords": [
+    "flint",
+    "vchart",
+    "visactor",
+    "visualization",
+    "chart",
+    "compiler"
+  ],
   "license": "MIT",
   "author": "flint-vchart contributors",
-  "repository": {"type":"git","url":"git+https://github.com/yoshino-s/flint-vchart.git"},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoshino-s/flint-vchart.git"
+  },
   "homepage": "https://yoshino-s.github.io/flint-vchart/",
-  "bugs": {"url":"https://github.com/yoshino-s/flint-vchart/issues"},
+  "bugs": {
+    "url": "https://github.com/yoshino-s/flint-vchart/issues"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": {".": {"types":"./dist/index.d.ts","import":"./dist/index.js","require":"./dist/index.cjs"}},
-  "files": ["dist", "README.md", "LICENSE", "CHANGELOG.md"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "sideEffects": false,
-  "engines": {"node": ">=18"},
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "clean": "rm -rf dist coverage demo/dist",
     "build": "tsup",
@@ -29,11 +54,28 @@
     "prepublishOnly": "npm run clean && npm run typecheck && npm test && npm run build",
     "prepack": "npm run build"
   },
-  "peerDependencies": {"@visactor/vchart": ">=1.10.0 <3"},
-  "peerDependenciesMeta": {"@visactor/vchart": {"optional": true}},
+  "peerDependencies": {
+    "@visactor/vchart": ">=1.10.0 <3"
+  },
+  "peerDependenciesMeta": {
+    "@visactor/vchart": {
+      "optional": true
+    }
+  },
   "devDependencies": {
-    "@eslint/js": "^9.0.0", "@types/node": "^22.0.0", "@vitest/coverage-v8": "^3.0.0",
-    "@visactor/vchart": "^1.13.0", "eslint": "^9.0.0", "globals": "^15.0.0",
-    "tsup": "^8.0.0", "typescript": "^5.5.0", "typescript-eslint": "^8.0.0", "vite": "^6.0.0", "vitest": "^3.0.0"
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "@visactor/vchart": "^1.13.0",
+    "@vitest/coverage-v8": "^3.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0"
+  },
+  "dependencies": {
+    "flint-chart": "0.5.1"
   }
 }

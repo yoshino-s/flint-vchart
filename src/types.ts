@@ -1,33 +1,63 @@
-/** Flint-compatible input accepted by the compiler. */
-export interface FlintInput {
-  data: { values: DataRow[] } | { url: string };
-  semantic_types?: Record<string, SemanticType | SemanticAnnotation>;
-  field_display_names?: Record<string, string>;
-  chart_spec: FlintChartSpec;
-  theme_spec?: string | FlintTheme;
-  options?: CompileOptions;
+import type {
+  AssembleOptions,
+  ChartAssemblyInput,
+  ChartEncoding,
+  ChartWarning,
+  RawEncodingValue,
+  SemanticAnnotation,
+  ThemeSpec,
+} from 'flint-chart';
+
+export interface FlintInteractionEntry {
+  type: string;
+  id?: string;
+  options?: Record<string, unknown>;
 }
+
+export interface FlintInteractionSpec {
+  interactions: readonly FlintInteractionEntry[];
+  assistedTargeting?: boolean | Record<string, unknown>;
+  keyboardTargeting?: boolean;
+}
+
+/**
+ * The published 0.5.1 contract plus the interaction_spec already present on
+ * the upstream main branch. Keeping it optional remains source-compatible.
+ */
+export type FlintInput = ChartAssemblyInput & { interaction_spec?: FlintInteractionSpec };
+export type FlintChartSpec = FlintInput['chart_spec'];
+export type FlintEncoding = ChartEncoding;
+export type FlintEncodingValue = RawEncodingValue;
+export type FlintTheme = ThemeSpec;
+export type FlintAssembleOptions = AssembleOptions;
+export type FlintSemanticAnnotation = SemanticAnnotation;
 export type DataRow = Record<string, unknown>;
-export type SemanticType = string;
-export interface SemanticAnnotation { semanticType?: string; type?: string; unit?: string; format?: string }
-export interface FlintChartSpec {
-  chartType: string; title?: string; subtitle?: string;
-  encodings: Record<string, FlintEncoding | string>;
-  baseSize?: { width: number; height: number };
-  canvasSize?: { width: number; height: number };
-  chartProperties?: Record<string, unknown>;
-}
-export interface FlintEncoding {
-  field?: string; type?: 'quantitative'|'nominal'|'ordinal'|'temporal';
-  aggregate?: 'count'|'sum'|'average'|'mean'; sortOrder?: 'ascending'|'descending';
-  sortBy?: string; scheme?: string;
-}
-export interface FlintTheme {
-  name?: string; background?: string; fontFamily?: string; palette?: string[];
-  titleColor?: string; axisColor?: string; gridColor?: string;
-}
-export interface CompileOptions { strict?: boolean; cloneData?: boolean }
+
+/** VChart single-chart or common multi-series specification. */
 export type VChartSpec = Record<string, any>;
-export interface CompileWarning { code: string; message: string; path?: string }
-export interface CompileResult { spec: VChartSpec; warnings: CompileWarning[] }
-export interface ValidationResult { valid: boolean; errors: CompileWarning[]; warnings: CompileWarning[] }
+
+export interface CompileWarning {
+  code: string;
+  message: string;
+  path?: string;
+}
+
+export interface CompileResult {
+  spec: VChartSpec;
+  warnings: CompileWarning[];
+}
+
+export interface ValidationResult {
+  valid: boolean;
+  errors: CompileWarning[];
+  warnings: CompileWarning[];
+}
+
+export interface TemplateDefinition {
+  chart: string;
+  channels: readonly string[];
+  required: readonly string[];
+  output: string;
+}
+
+export type FlintChartWarning = ChartWarning;

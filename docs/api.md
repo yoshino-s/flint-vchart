@@ -10,6 +10,13 @@ Returns `{ spec, warnings }`. Warnings have `code`, `message`, and optionally `p
 Returns `{ valid, errors, warnings }` without compiling.
 
 ## `inferFieldType(input, field)`
-Maps semantic metadata to `quantitative`, `temporal`, or `nominal`.
+Uses Flint field semantics and returns `quantitative`, `temporal`, `ordinal`, or `nominal`.
 
-All public input/output types are exported from the package root: `FlintInput`, `FlintChartSpec`, `FlintEncoding`, `FlintTheme`, `CompileResult`, and others.
+## `supportedChartTypes`
+The authoritative list of Flint templates supported by this backend.
+
+## `FLINT_TEMPLATES`
+Template metadata including accepted channels, required channels and VChart output strategy.
+
+All public input/output types are exported from the package root. `FlintInput`
+is derived from the `flint-chart@0.5.1` `ChartAssemblyInput` contract.
