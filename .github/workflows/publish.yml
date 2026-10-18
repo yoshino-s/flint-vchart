@@ -17,4 +17,13 @@ jobs:
       - run: npm install --global npm@11.6.2
       - run: npm ci --include=dev
       - run: npm run typecheck && npm test && npm run build
-      - run: npm publish --access public --provenance
+      - name: Publish package if version is new
+        shell: bash
+        run: |
+          NAME="$(node -p "require('./package.json').name")"
+          VERSION="$(node -p "require('./package.json').version")"
+          if npm view "${NAME}@${VERSION}" version --registry=https://registry.npmjs.org/ >/dev/null 2>&1; then
+            echo "${NAME}@${VERSION} is already published; nothing to do."
+          else
+            npm publish --access public --provenance
+          fi
