@@ -1,6 +1,6 @@
 # flint-vchart
 
-[![CI](https://github.com/your-org/flint-vchart/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/flint-vchart/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/flint-vchart)](https://www.npmjs.com/package/flint-vchart) [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![CI](https://github.com/yoshino-s/flint-vchart/actions/workflows/ci.yml/badge.svg)](https://github.com/yoshino-s/flint-vchart/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/flint-vchart)](https://www.npmjs.com/package/flint-vchart) [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 A typed, dependency-light compiler that turns [Microsoft Flint](https://github.com/microsoft/flint-chart) semantic chart inputs into native [VisActor VChart](https://visactor.io/vchart) specifications. It is not affiliated with Microsoft or VisActor.
 
@@ -54,7 +54,7 @@ npm pack --dry-run
 
 ## Publishing
 
-1. Replace `your-org` URLs in `package.json`, README and demo.
+1. Replace `yoshino-s` URLs in `package.json`, README and demo.
 2. Create an npm trusted publisher for the GitHub repository.
 3. Update `CHANGELOG.md`, then run `npm version patch|minor|major`.
 4. Push the tag or run the **Publish npm** workflow with a version matching `package.json`.
