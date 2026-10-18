@@ -1,0 +1,6 @@
+<!doctype html><html><body><div id="chart" style="width:700px;height:420px"></div><script type="module">
+import VChart from 'https://cdn.jsdelivr.net/npm/@visactor/vchart/+esm';
+import { flintToVChart } from '../../dist/index.js';
+const spec=flintToVChart({data:{values:[{month:'Jan',sales:12},{month:'Feb',sales:24}]},chart_spec:{chartType:'Bar Chart',title:'Sales',encodings:{x:'month',y:'sales'}}});
+new VChart(spec,{dom:'chart'}).renderSync();
+</script></body></html>
