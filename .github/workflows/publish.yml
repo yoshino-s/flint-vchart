@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: {node-version: 22, registry-url: 'https://registry.npmjs.org', cache: npm}
       # npm Trusted Publishing (OIDC) requires npm CLI 11.5.1 or newer.
-      - run: npm install --global npm@latest
-      - run: npm ci
+      - run: npm install --global npm@11.6.2
+      - run: npm ci --include=dev
       - run: npm run typecheck && npm test && npm run build
       - run: npm publish --access public --provenance
